@@ -19,7 +19,7 @@ jobs:
         run: |
           cd ~/
           curl https://rclone.org/install.sh | sudo bash
-          wget https://github.com/crypt-bphc/filebot/raw/main/filebot.jar
+          wget -q https://github.com/crypt-bphc/filebot/raw/main/filebot.jar
           mkdir -p ~/.config/rclone/
           cat >  ~/.config/rclone/rclone.conf  << EOF
           ${{ secrets.RCLONE_CONFIG }}
