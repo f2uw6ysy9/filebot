@@ -28,7 +28,8 @@ jobs:
           sudo cp ~/.config/rclone/rclone.conf /root/.config/rclone/
           mkdir ~/mount
           echo "Mounting..."
-          sudo rclone mount vmmedia:/ ~/mount/ --allow-other --daemon --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list
+          sudo rclone mount vmmedia:/ ~/mount/ --allow-other --daemon
+          ls ~/mount/
           sleep 3
           echo "Done Mounting"
           sudo java -jar filebot.jar -script fn:amc --output "/home/runner/mount/MediaServer/Manual" --action move -non-strict "/home/runner/mount/Downloads" --log-file amc.log --def clean=y --def unsorted=y --def movieFormat="/home/runner/mount/MediaServer/Manual/{plex.dir}/{fn}" seriesFormat="/home/runner/mount/MediaServer/Manual/{plex.dir}/{fn}" animeFormat="/home/runner/mount/MediaServer/Manual/{plex.dir}/{fn}" musicFormat="/home/runner/mount/MediaServer/Manual/{plex.dir}/{fn}" --def minFileSize=0
